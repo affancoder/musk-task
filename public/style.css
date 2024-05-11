@@ -1,0 +1,36 @@
+.content{
+    display: flex;
+    justify-content: center;
+}
+.leftSection{
+    /* background-color: red; */
+}
+.rightSection{
+    /* background-color: blue; */
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+}
+.one{
+    font-size: 36px;
+}
+strong{
+    color: rgba(15, 92, 168, 0.969);
+}
+
+@media (max-width:600px) {
+    html,body{
+        height: 100%;
+        width: 100%;
+    }
+    .content{
+        display: flex;
+        flex-direction: column;
+        /* background-color: red !important; */
+    }
+    button{
+        height: 60px;
+    }
+}
