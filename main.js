@@ -53,7 +53,7 @@ const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 passport.use(new GoogleStrategy({
     clientID: process.env.Google_ClientID,
     clientSecret: process.env.Google_ClientSecret,
-    callbackURL:`${process.env.GOOGLE_CALLBACK}/auth/google/callback`
+    callbackURL:`${process.env.GOOGLE_CALLBACK}`
 },
     function(accessToken,refreshToken,profile,done){
         console.log(profile);
