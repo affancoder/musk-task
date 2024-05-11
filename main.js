@@ -18,6 +18,35 @@ app.use(session({
     saveUninitialized:true,
 }));
 
+// -- Log out --
+
+function requireLogin(req, res, next) {
+    if (req.session.userId) {
+        next(); // User is logged in, proceed to the next middleware
+    } else {
+        res.redirect('/login'); // Redirect to login page if not logged in
+    }
+}
+
+// Example usage:
+app.get('/login', requireLogin, (req, res) => {
+    // Render profile page
+});
+
+
+app.get("/logout", (req, res) => {
+    req.session.destroy(err => {
+        if (err) {
+            return res.status(500).send('Error logging out');
+        }
+        res.redirect('/'); // Redirect to home page or login page
+    });
+});
+
+    
+
+// -- Google --
+
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
